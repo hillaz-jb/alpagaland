@@ -52,53 +52,6 @@
 
     <div class="container">
         <div class="py-5 mb-4">
-            <h2 class="text-center text-uppercase frontpageH2">Nos derniers articles</h2>
-
-            <div class="container">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 py-5">
-                    <?php
-                    $args = array(
-                        'posts_per_page' => 3,
-
-                    );
-
-                    $q = new WP_Query($args);
-
-                    if ($q->have_posts()) {
-                        while ($q->have_posts()) {
-                            $q->the_post();
-                            ?>
-                            <div class="col">
-                                <div class="card shadow-sm">
-                                    <?php the_post_thumbnail('medium', array('class' => 'card-img-top')); ?>
-                                    <div class="card-body">
-                                        <div class="card-title h4">
-                                            <?php the_title(); ?>
-                                        </div>
-                                        <div class="card-text">
-                                            <?php the_excerpt(); ?>
-                                        </div>
-                                        <div class="d-flex justify-content-center">
-                                            <a href="<?php the_permalink(); ?>"
-                                               class="btn btn-sm btn-outline-secondary">
-                                                Lire la suite
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                    } else {
-                        ?>
-                        <div> Il n'y a pas encore d'articles</div>
-                        <?php
-                    }
-                    wp_reset_postdata();
-                    ?>
-                </div>
-            </div>
-
             <h2 class="text-center text-uppercase frontpageH2">NOS DERNIERS PRODUITS</h2>
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 py-5">
@@ -107,6 +60,7 @@
                     $args = array(
                         'posts_per_page' => 6,
                         'post_type' => 'product',
+                        'product_cat' => 'accessoires'
 
                     );
 
@@ -117,7 +71,6 @@
                         while ($q->have_posts()) {
                             $q->the_post();
                             $product = wc_get_product(get_the_ID());
-                            if (get_the_terms($q->ID, 'product_cat')[0]->slug !== 'alpagas') {
                                 ?>
                                 <div class="col">
                                     <div class="card shadow-sm">
@@ -141,10 +94,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php
-                            }
-                            ?>
-
                             <?php
                         }
                     } else {
@@ -194,6 +143,53 @@
                                             <a href="<?php the_permalink(); ?>"
                                                class="btn btn-sm btn-outline-secondary">
                                                 Voir le produit
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    } else {
+                        ?>
+                        <div> Il n'y a pas encore d'articles</div>
+                        <?php
+                    }
+                    wp_reset_postdata();
+                    ?>
+                </div>
+            </div>
+
+            <h2 class="text-center text-uppercase frontpageH2">Nos derniers articles</h2>
+
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 py-5">
+                    <?php
+                    $args = array(
+                        'posts_per_page' => 3,
+
+                    );
+
+                    $q = new WP_Query($args);
+
+                    if ($q->have_posts()) {
+                        while ($q->have_posts()) {
+                            $q->the_post();
+                            ?>
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <?php the_post_thumbnail('medium', array('class' => 'card-img-top img-fluid')); ?>
+                                    <div class="card-body">
+                                        <div class="card-title h4">
+                                            <?php the_title(); ?>
+                                        </div>
+                                        <div class="card-text">
+                                            <?php the_excerpt(); ?>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a href="<?php the_permalink(); ?>"
+                                               class="btn btn-sm btn-outline-secondary">
+                                                Lire la suite
                                             </a>
                                         </div>
                                     </div>
