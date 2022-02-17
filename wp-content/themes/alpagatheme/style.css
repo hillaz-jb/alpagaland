@@ -39,9 +39,10 @@ a:hover{
 
 .logoText {
     font-family: 'Expletus Sans', 'Calibri', sans-serif;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #DE9352;
     padding-left: 1rem;
+    text-transform: uppercase;
 }
 
 .navbar-dark .navbar-nav .nav-link{

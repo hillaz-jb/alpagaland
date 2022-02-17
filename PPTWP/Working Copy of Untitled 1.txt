@@ -1,0 +1,25 @@
+﻿dark grey text #524C3F
+
+orange marron titres h2 article #DE9352
+
+marron titre h1 blog #C48249
+
+bg #FFFDFB
+
+vert foncé #183318
+header{
+    background-color: #52361E; #382515
+}
+
+
+// remove additional information tabs
+//remove_action('woocommerce_after_single_product_summary','woocommerce_output_product_data_tabs',10);
+//remove sidebar product page
+//remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+
+
+wp-login = access
+ compte jose mdp : jose
+
+
+#3C803C
